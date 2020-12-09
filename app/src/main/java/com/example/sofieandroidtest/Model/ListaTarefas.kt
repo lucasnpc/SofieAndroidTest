@@ -6,10 +6,10 @@ class ListaTarefas()
 {
 
     @SerializedName("data")
-    lateinit var tarefas: List<Tarefas>
+    lateinit var tarefas: List<Tarefa>
 
     @JvmName("getTarefas1")
-    fun getTarefas(): List<Tarefas>
+    fun getTarefas(): List<Tarefa>
     {
         return tarefas
     }

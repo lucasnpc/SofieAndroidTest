@@ -1,9 +1,8 @@
-package com.example.sofieandroidtest.Network
+package com.example.sofieandroidtest.Retrofit
 
 import com.example.sofieandroidtest.Interface.NetworkInterface
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 class RetrofitInit {
     companion object {

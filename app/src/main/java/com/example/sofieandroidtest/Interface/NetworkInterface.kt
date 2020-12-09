@@ -1,11 +1,9 @@
 package com.example.sofieandroidtest.Interface
 
 import com.example.sofieandroidtest.Model.ListaTarefas
-import com.example.sofieandroidtest.Model.Tarefas
+import com.example.sofieandroidtest.Model.Tarefa
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface NetworkInterface {
 
@@ -16,7 +14,8 @@ interface NetworkInterface {
         @GET("task")
         fun getTarefas(): Call<ListaTarefas>
 
-        @POST("")
-        fun postTarefas(@Body tarefa: Tarefas): Call<Void>
+        @Headers("Content-type: application/json")
+        @POST("task")
+        fun postTarefas(@Body tarefa: Tarefa): Call<Void>
 
 }

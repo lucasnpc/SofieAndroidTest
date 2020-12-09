@@ -1,7 +1,7 @@
 package com.example.sofieandroidtest.Activitiy
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -9,10 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sofieandroidtest.Adapter.AdapterTarefas
 import com.example.sofieandroidtest.Model.ListaTarefas
-import com.example.sofieandroidtest.Network.RetrofitInit
+import com.example.sofieandroidtest.Retrofit.RetrofitInit
 import com.example.sofieandroidtest.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     fun buscarDados() {
         RetrofitInit.getNetworkInterface().getTarefas().enqueue(object : Callback<ListaTarefas>{
             override fun onResponse(call: Call<ListaTarefas>, response: Response<ListaTarefas>) {
-                val resposta: ListaTarefas? = response.body()
+                val resposta = response.body()
                 if (resposta != null) {
                     recyclerView.apply {
                         adapter = AdapterTarefas(resposta.getTarefas())
@@ -46,9 +45,8 @@ class MainActivity : AppCompatActivity() {
 
         buscarDados()
 
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
+            startActivity(Intent(this, AddTaskActivity::class.java))
         }
     }
 
