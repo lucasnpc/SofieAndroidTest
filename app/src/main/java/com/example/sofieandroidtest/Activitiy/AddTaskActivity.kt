@@ -45,12 +45,12 @@ class AddTaskActivity : AppCompatActivity() {
     }
 
     private fun validaDados() {
-        if (email.text.isEmpty() && !Patterns.EMAIL_ADDRESS.matcher(email.text).matches())
-            return
+        if (!Patterns.EMAIL_ADDRESS.matcher(email.text).matches())
+            email.requestFocus()
         else if (titulo.text.isEmpty())
-            return
+            titulo.requestFocus()
         else if (descricao.text.isEmpty())
-            return
+            descricao.requestFocus()
         else {
             cadastrarDados(
                 Tarefa(
