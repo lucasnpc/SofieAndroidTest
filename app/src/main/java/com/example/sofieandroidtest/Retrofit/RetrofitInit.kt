@@ -10,9 +10,6 @@ class RetrofitInit {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
-        fun getNetworkInterface(): NetworkInterface {
-            return retrofit.create(NetworkInterface::class.java)
-        }
+        fun getNetworkInterface() = retrofit.create(NetworkInterface::class.java)
     }
-
 }

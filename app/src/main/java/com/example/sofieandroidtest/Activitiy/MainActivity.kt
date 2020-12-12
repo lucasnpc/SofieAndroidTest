@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                 val resposta = response.body()
                 if (resposta != null) {
                     recyclerView.apply {
-                        adapter = AdapterTarefas(resposta.getTarefas())
+                        adapter = AdapterTarefas(resposta.tarefas)
                     }
                 }
             }

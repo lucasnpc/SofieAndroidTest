@@ -1,6 +1,7 @@
 package com.example.sofieandroidtest.Activitiy
 
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -44,7 +45,7 @@ class AddTaskActivity : AppCompatActivity() {
     }
 
     private fun validaDados() {
-        if (email.text.isEmpty())
+        if (email.text.isEmpty() && !Patterns.EMAIL_ADDRESS.matcher(email.text).matches())
             return
         else if (titulo.text.isEmpty())
             return
